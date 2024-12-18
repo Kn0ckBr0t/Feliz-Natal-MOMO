@@ -1,0 +1,62 @@
+{
+  "name": "feliz-natau",
+  "version": "1.0.0",
+  "description": "Feliz Natal MOMO!!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "natalamor"
+  ],
+  "author": "Pedro",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "productName": "Feliz Natal MOMO",
+    "artifactName": "${productName} Setup ${version}.${ext}",
+    "compression": "maximum",
+    "files": [
+      "main.js",
+      "preload.js",
+      "views/**/*",
+      "assets/**/*",
+      "public/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "public/",
+        "to": "public/",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Feliz Natal MOMO"
+    }
+  }
+}
